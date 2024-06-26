@@ -4,32 +4,39 @@ const MapComponent = () => {
   const [map, setMap] = useState(null);
   const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API;
 
-
   useEffect(() => {
-    // Load the Google Maps API script dynamically
-    // console.log('API Key:', googleMapsApiKey);
+    if (!googleMapsApiKey) {
+      console.error('Google Maps API key is missing');
+      return;
+    }
+
     const googleMapScript = document.createElement('script');
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&libraries=places`;
-    window.document.body.appendChild(googleMapScript);
-    googleMapScript.addEventListener('load', () => {
-      // Initialize the map once the Google Maps API is loaded
+    googleMapScript.async = true;
+    googleMapScript.defer = true;
+
+    googleMapScript.onload = () => {
       const newMap = new window.google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 8,
       });
       setMap(newMap);
-    });
-  }, []);
+    };
+
+    googleMapScript.onerror = (e) => {
+      console.error('Google Maps API script could not be loaded.', e);
+    };
+
+    window.document.body.appendChild(googleMapScript);
+  }, [googleMapsApiKey]);
 
   useEffect(() => {
     if (map) {
-      // Get the user's current location using the Geolocation API
       navigator.geolocation.getCurrentPosition((position) => {
         const userLocation = {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        // Add a marker at the user's location
         new window.google.maps.Marker({
           position: userLocation,
           map,
