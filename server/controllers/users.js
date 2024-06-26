@@ -54,7 +54,7 @@ const calculateBadges = (points) => {
 
 export const updateProfile = async (req, res) => {
     const { id:_id }=req.params;
-    const {name, about, tags } = req.body;
+    const {name, about, tags, profilePicture } = req.body;
 
     if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('question unavailable...')
@@ -62,8 +62,12 @@ export const updateProfile = async (req, res) => {
 
     try {
         let updateData = { name, about, tags };
-        if (req.file) {
-            updateData.profilePicture = req.file.path;
+        // if (req.file) {
+        //     updateData.profilePicture = req.file.path;
+        // }
+
+        if (profilePicture) {
+            updateData.profilePicture = profilePicture;
         }
 
         const updatedProfile = await users.findByIdAndUpdate(_id, updateData, { new: true });
@@ -89,8 +93,10 @@ export const updateProfilepic = async (req, res) => {
       if (!user) {
         return res.status(404).send('User not found');
       }
-      console.log(req.file);
-      user.profilePicture = req.file.path;
+    //   console.log(req.file);
+    if (profilePicture) {
+        user.profilePicture = profilePicture;
+    }
       const updatedUser = await user.save();
       res.status(200).json(updatedUser);
     } catch (error) {
