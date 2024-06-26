@@ -1,5 +1,5 @@
 import express from "express";
-import { upload } from "../middlewares/multer.js";
+// import { upload } from "../middlewares/multer.js";
 import { login,signup } from "../controllers/auth.js"
 import { getAllUsers, updateProfile, updateProfilepic } from "../controllers/users.js"
 import { googleSignIn } from "../controllers/auth.js";
@@ -18,7 +18,7 @@ router.post('/google/signin', googleSignIn);
 
 router.get('/getAllUsers', getAllUsers);
 router.patch('/update/:id', auth, updateProfile);
-router.post('/updateProfilepic/:id', auth, upload.single('image') , updateProfilepic);
+// router.post('/updateProfilepic/:id', auth, upload.single('image') , updateProfilepic);
 
 router.post('/reset-password-request', resetPasswordRequest);
 router.post('/reset-password/:token', resetPassword);
