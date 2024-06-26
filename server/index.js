@@ -17,9 +17,9 @@ app.use(cors());
 app.use(useragent.express());
 
 // For testing running server
-// app.use('/',(req, res) => {
-//     res.send("This is a stack overflow clone API")
-// })
+app.use('/',(req, res) => {
+    res.send("This is a stack overflow clone API")
+})
 
 app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
