@@ -3,7 +3,7 @@
     "name": "Stackoverflow-api",
     "builds": [
       {
-        "src": "/index.js",
+        "src": "index.js",
         "use": "@vercel/node"
       }
     ],
