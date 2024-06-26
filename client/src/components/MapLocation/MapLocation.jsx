@@ -7,7 +7,7 @@ const MapComponent = () => {
 
   useEffect(() => {
     // Load the Google Maps API script dynamically
-    console.log('API Key:', googleMapsApiKey);
+    // console.log('API Key:', googleMapsApiKey);
     const googleMapScript = document.createElement('script');
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&libraries=places`;
     window.document.body.appendChild(googleMapScript);
