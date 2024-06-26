@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 const MapComponent = () => {
   const [map, setMap] = useState(null);
+  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
 
   useEffect(() => {
     // Load the Google Maps API script dynamically
+    console.log('API Key:', googleMapsApiKey);
     const googleMapScript = document.createElement('script');
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBxUFIWpz4iAGAsOkpgOsRmS36ZtGsuPh4&libraries=places`;
+    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&libraries=places`;
     window.document.body.appendChild(googleMapScript);
     googleMapScript.addEventListener('load', () => {
       // Initialize the map once the Google Maps API is loaded

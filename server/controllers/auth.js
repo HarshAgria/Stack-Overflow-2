@@ -119,7 +119,7 @@ export const googleSignIn = async (req, res) => {
         else {
 
         const ipAddress = req.ip;
-        console.log(ipAddress);
+        // console.log(ipAddress);
 
         const userAgent = req.useragent;
         const browser = userAgent.browser;

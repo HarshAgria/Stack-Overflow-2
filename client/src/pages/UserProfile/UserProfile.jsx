@@ -8,9 +8,6 @@ import {faBirthdayCake, faPen} from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment'
 import EditProfileForm from './EditProfileForm.jsx'
 import ProfileBio from './ProfileBio.jsx'
-// import axios from 'axios';
-// import { updateProfile } from '../../actions/users';
-// import { useDispatch } from 'react-redux'
 
 import './UsersProfile.css'
 

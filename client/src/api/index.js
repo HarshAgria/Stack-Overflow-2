@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API = axios.create({baseURL: "http://localhost:5000",})
+const API = axios.create({baseURL: "https://stack-overflow-clone-api-sable.vercel.app/",})
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("Profile")) {
@@ -35,4 +35,4 @@ export const resetPasswordRequest = (email) => API.post("/user/reset-password-re
 export const resetPassword = (token, newPassword) => API.post(`/user/reset-password/${token}`, { newPassword });
 
 
-export default API;
+export default API

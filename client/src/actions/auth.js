@@ -58,9 +58,6 @@ export const googleSignup = (tokenId, navigate) => async (dispatch) => {
     try {
       console.log("qwerty"+ email);
       await api.resetPasswordRequest(email);
-      // dispatch({ type: 'AUTH', res });
-      // console.log(response.data)
-
       showNotification('Reset Password', 'Reset link sent to your email.');
       navigate('/'); // Navigate to home page or login page
     } catch (error) {
@@ -73,11 +70,9 @@ export const googleSignup = (tokenId, navigate) => async (dispatch) => {
     try {
       await api.resetPassword(token, newPassword);
       console.log("111");
-      // dispatch({ type: 'RESET_PASSWORD_SUCCESS', payload: response.data });
       showNotification('Password Reset', 'Your password has been reset.');
       navigate('/auth'); // Navigate to login page after successful password reset
     } catch (error) {
-      // dispatch({ type: 'RESET_PASSWORD_FAILURE', payload: { error: error } });
       console.error('Error resetting password:', error);
       showNotification('Error', 'Failed to reset password.');
     }

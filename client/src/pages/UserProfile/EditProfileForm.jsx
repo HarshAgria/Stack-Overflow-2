@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { updateProfile, updateProfilepic } from '../../actions/users';
-// import { response } from 'express';
 
 const EditProfileForm = ({ currentUser, setSwitch, setUploadedImageUrl }) => {
 

@@ -44,8 +44,6 @@ const VPlayer = () => {
         width="100%"
         height="auto"
       />
-      <br/>
-      {/* <p>Double click right/left to move 10sec.</p> */}
     </div>
   );
 };

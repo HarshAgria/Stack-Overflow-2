@@ -11,8 +11,6 @@ const AskQuestion = () => {
     const [questionBody, setQuestionBody] = useState('')
     const [questionTags, setQuestionTags] = useState('')
 
-    const [richTextContent, setRichTextContent] = useState('');
-
     const dispatch = useDispatch();
     const User = useSelector((state) => state.currentUserReducer);
     const navigate = useNavigate();
