@@ -78,7 +78,7 @@ const QuestionDetails = () => {
     const User = useSelector((state) => state.currentUserReducer)
     const location = useLocation()
     // console.log(location);
-    const url ='http://localhost:3000'
+    const url ='stack-overflow.app'
 
     const handlePostAns = (e, answerLength) => {
         e.preventDefault();

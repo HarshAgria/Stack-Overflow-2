@@ -11,7 +11,7 @@ const router = express.Router();
 router.post('/signup', signup);
 router.post('/login', login);
 
-// console.log("sr1");
+console.log("sr1");
 
 router.post('/google/signin', googleSignIn);
 // router.post('/google/signup', googleSignIn);

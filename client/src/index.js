@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import dotenv from "dotenv"
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -10,7 +9,6 @@ import {thunk, } from 'redux-thunk'
 import Reducers from './reducers'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-// dotenv.config();
 const store = createStore( Reducers, compose(applyMiddleware(thunk)));
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
