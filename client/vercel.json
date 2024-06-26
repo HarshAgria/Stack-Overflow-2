@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "Stackoverflow-frontend",
+    "builds": [
+      {
+        "src": "App.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/src/App.js" }
+    ]
+  }
+  
