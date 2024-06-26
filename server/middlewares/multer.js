@@ -1,8 +1,15 @@
-import multer from "multer";
+const multer = require('multer');
+const path = require('path');
 
-export const upload = multer({
-    dest: 'uploads/', // Destination directory for storing uploaded files
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, process.env.TEMP_DIR || '/tmp/uploads'); // Use TEMP_DIR or default to /tmp/uploads
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
 });
+
+const upload = multer({ storage: storage });
+
+module.exports = upload;

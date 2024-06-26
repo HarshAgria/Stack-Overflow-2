@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { upload } from "../middlewares/multer.js";
+// import { upload } from "../middlewares/multer.js";
 import users from '../models/auth.js'
 
 
