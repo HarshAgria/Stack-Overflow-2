@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const MapComponent = () => {
   const [map, setMap] = useState(null);
-  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API;
 
 
   useEffect(() => {
