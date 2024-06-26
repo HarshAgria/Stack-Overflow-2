@@ -1,0 +1,115 @@
+.home-page{
+  height:100vh;
+}
+.content-item {
+    background-color: #fff;
+    border: .1rem solid #ddd;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+  }
+  
+  .content-title {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+  }
+
+  .content-list{
+    border: .1rem solid #ddd;
+    height: 20rem;
+    width: auto;
+  }
+  
+  .content-text {
+    font-size: 1em;
+  }
+  
+  .content-image,
+  .content-video {
+    max-width: 100%;
+    height: auto;
+    border-radius: .5rem;
+    margin-top: .1rem;
+  }
+  
+  /* Post Content Styles */
+  .post-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    border: .1rem solid #000
+  }
+  
+  .post-content-title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .post-content-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-label {
+    margin-bottom: .5rem;
+    font-weight: bold;
+  }
+  
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .form-file-input {
+    width: 100%;
+    padding: 1rem;
+    border: .1rem solid #ddd;
+    border-radius: .5rem;
+  }
+  
+  .form-error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 1rem;
+  }
+  
+  .form-submit-button {
+    padding: 1rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+  }
+  
+  .form-submit-button:hover {
+    background-color: #218838;
+  }
+  .home-page{
+    margin-top: 5.5rem;
+  }
+  .toggle-form-button{
+    padding: 1rem;
+    background-color: red;
+    border: .1rem solid #000000;
+    color: #fff;
+  }
+
+  .dark-mode .toggle-form-button{
+    padding: 1rem;
+    background-color: red;
+    border: .1rem solid #ffffff;
+  }
+  .dark-mode .post-content-form {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background-color: #333;
+  }
+  .dark-mode .post-content{
+    background-color: #333;
+  }

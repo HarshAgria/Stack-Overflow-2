@@ -1,0 +1,14 @@
+.video-player {
+    position: relative;
+    width: 100%;
+    max-width: 80rem;
+    margin-top: 1rem;
+    display: flex;
+    margin-bottom: auto;
+  }
+  
+  .react-player {
+    width: 100%;
+    height: auto;
+  }
+  

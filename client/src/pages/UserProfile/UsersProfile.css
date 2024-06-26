@@ -1,0 +1,116 @@
+.home-container-1{
+  font-size: 1.5rem;
+}
+.user-details-container {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  .user-details {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .user-name {
+    padding-left: 20px;
+  }
+  .user-name p {
+    color: #7e7e7e;
+  }
+  .edit-profile-btn {
+    padding: 8px 10px;
+    border: solid 1px #7e7e7e;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .edit-profile-btn:hover {
+    background-color: #f5f9fc;
+  }
+  .edit-profile-title {
+    padding: 20px 0px;
+    border-bottom: solid 1px #dbd9d9;
+  }
+  .edit-profile-title-2 {
+    color: rgb(162, 162, 162);
+    font-weight: 400;
+  }
+  .edit-profile-form {
+    padding: 20px;
+    border: solid 1px #dbd9d9;
+    border-radius: 5px;
+  }
+  .edit-profile-form label h3 {
+    margin: 0%;
+    padding: 3px 0px;
+  }
+  .edit-profile-form label p {
+    margin: 0%;
+    padding: 3px 0px;
+  }
+  .edit-profile-form label input,
+  .edit-profile-form label textarea {
+    padding: 5px;
+    margin-bottom: 20px;
+    border: solid 1px #dbd9d9;
+    width: 50%;
+  }
+  
+  .user-submit-btn,.profile-more-info-button {
+    padding: 14px 10px;
+    background-color: #0a95ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .user-submit-btn:hover,.profile-more-info-button:hover {
+    background-color: #0074cc;
+  }
+  
+  .user-cancel-btn {
+    padding: 14px 10px;
+    color: #0a95ff;
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+
+
+.profile-login-history-container {
+    margin-top: 20px;
+}
+
+.login-history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.login-history-table th,
+.login-history-table td {
+    border: 1px solid #b7b7b7;
+    padding: 8px;
+    text-align: left;
+}
+.login-history-table th {
+  background-color: #d6d6d6;
+}
+
+.login-history-table tbody tr {
+  background-color: #f8f3f3;
+}
+.dark-mode .login-history-table th {
+    background-color: #434447;
+}
+
+.dark-mode .login-history-table tbody tr {
+    background-color: #2c2222;
+}

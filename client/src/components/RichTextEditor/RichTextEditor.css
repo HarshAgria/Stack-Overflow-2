@@ -1,0 +1,39 @@
+.rich-text-editor {
+    width: 100%; 
+    max-width: 100%; 
+    min-width: 30rem; 
+    height: auto;
+    border: .1rem solid #ccc; 
+    background-color: #fff;
+    color: #000; 
+  }
+  
+  .rich-text-editor .ql-container {
+    height: 25rem;
+    overflow-y: auto;
+  }
+  
+  .rich-text-editor .ql-editor {
+    min-height: 25rem;
+    height: auto;
+    line-height: 1.5;
+  }
+
+  .dark-mode .rich-text-editor{
+    border: .1rem solid #444;
+    background-color: #333;
+    color: #ffffff;
+  }
+
+  .dark-mode .rich-text-editor .ql-editor{
+    color: #fff;
+    background-color: #333; 
+    border: .1rem solid #444;
+  }
+
+  .dark-mode .rich-text-editor .ql-container{
+    color: #fff;
+    border: .1rem solid #444;
+  }
+
+  

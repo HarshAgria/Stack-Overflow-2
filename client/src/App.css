@@ -1,0 +1,186 @@
+html{
+  font-size: 62.5%;
+}
+
+.home-container-1{
+    min-height: 108rem;
+    max-width: 125rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0% auto;
+}
+
+.home-container-2{
+    max-width: 110rem;
+    width: calc(100% - 164px);
+    /* border: 1px solid #d6d9dc; */
+    padding: 2.4rem;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .home-container-2 {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+@media(max-width:998px){
+  html{
+    font-size: 55%;
+  }
+}  
+@media(max-width:768px){
+  html{
+    font-size: 45%;
+  }
+}
+
+
+
+  .dark-mode {
+    background-color: #333; 
+    color: #fff;
+  }
+  .dark-mode .main-nav{
+    background-color: #222;
+  }
+  .dark-mode .navbar {
+  background-color: #222; /* Dark navbar background color */
+  }
+  .dark-mode .nav-item:hover{
+    background-color: rgb(96, 93, 93);
+  }
+  .dark-mode .nav-links{
+    background-color: #000000;
+    border-color: #9c9898;
+  }
+  .dark-mode .nav-links:hover{
+    background-color: #484646;
+  }
+  .dark-mode .nav-logo{
+    background-color: #a7a7a7;
+    border-radius: .3rem;
+    border: white solid .15rem;
+    }
+  .dark-mode .nav-item  {
+    color: #fff; 
+  }
+
+
+/*Leftside bar  */
+
+  .dark-mode .left-sidebar {
+    background-color: #333;
+    box-shadow: .1rem .1rem 0 rgba(255, 255, 255, 0.2);
+    
+  }
+  .dark-mode .side-nav-links {
+    color: white;
+  }
+  .dark-mode .globe-logo path,
+  .dark-mode .globe-logo line,
+  .dark-mode .globe-logo circle {
+    fill: rgb(255, 255, 255); /* Change the stroke color to blue */
+  }
+  .dark-mode .side-nav-links:hover{
+    color: rgb(255, 255, 255);
+  }
+  .dark-mode .active{
+    background-color: #888;
+  }
+
+
+  /* Rightside bar */
+  .dark-mode .widget{
+    box-shadow: .3rem .3rem 1rem rgba(255, 255, 255, 0.05),
+    -3px -3px 10px rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+  .dark-mode .widget h4{
+    background-color: #333;
+    border-color: #333;
+  }
+  .dark-mode .right-sidebar-div-1{
+    background-color: #484646;
+    border-color: #333;
+  }
+  .dark-mode .widget-tags{
+    box-shadow: .3rem .3rem 1rem rgba(255, 255, 255, 0.05),
+    -0.3rem -0.3rem 1rem rgba(255, 255, 255, 0.05);
+  }
+  .dark-mode .widget-tags h4{
+    background-color: #9a9a9a;
+    border-color: #9c9898;
+  }
+  .dark-mode .widget-tags-div{
+    border: solid 1px #9c9898;
+  }
+  .dark-mode .widget-tags-div p{
+    background-color: #b4b4b4;
+    color: #0a6fb6;
+  }
+
+/* Home main bar */
+.dark-mode .display-question-container{
+  background-color: #444444;
+  border-color: #a7a7a7;
+}
+.dark-mode .display-tags-time .display-tags p{
+  background-color: #b4b4b4;
+  color: #0a6fb6;
+}
+
+/* ask question */
+.dark-mode .ask-question{
+  background-color: #333;
+}
+.dark-mode .ask-ques-container form .ask-form-container{
+  background-color: #444444;
+}
+
+.dark-mode textarea,
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="password"]{
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode ::placeholder{
+  color: #ccc;
+}
+
+
+/* Auth */
+.dark-mode .auth-section{
+  background-color: #333;
+}
+.dark-mode .auth-container-2 form{
+  background-color: #444444;
+}
+.dark-mode .x{
+  color: #7a7a7a;
+}
+
+/* Tags */
+.dark-mode .tag p{
+  color: #c5c5c5;
+}
+
+/* Users */
+.dark-mode .user-profile-link{
+  color: rgb(227, 227, 227);
+}
+.dark-mode .user-profile-link h3{
+  background-color: #000000;
+}
+
+/* User Profile */
+.dark-mode .edit-profile-btn {
+  background-color: #ccc;
+}
+
+
+iframe#webpack-dev-server-client-overlay{display:none!important}

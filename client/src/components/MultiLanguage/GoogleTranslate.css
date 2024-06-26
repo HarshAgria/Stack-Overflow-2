@@ -1,0 +1,44 @@
+.google-translate-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .google-translate-container .goog-te-gadget {
+    color: #333 !important;
+    font-size: 1.4rem !important;
+    background-color: #f8f8f8;
+    border: .1rem solid #ddd;
+    padding: .5rem;
+    border-radius: .5rem;
+  }
+  
+  .google-translate-container .goog-te-gadget .goog-te-combo {
+    margin-left: .8rem;
+    border: .1rem solid #ddd;
+    padding: .5rem;
+    border-radius: .5rem;
+  }
+
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+  
+  body {
+    top: 0 !important;
+  }
+  
+  .google-translate-container .goog-te-gadget .goog-te-combo {
+    background: url('data:image/svg+xml;base64,...') no-repeat right 0.5em center/8rem 10rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .google-translate-container select option {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
