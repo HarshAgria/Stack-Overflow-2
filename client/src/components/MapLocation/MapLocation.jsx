@@ -61,8 +61,13 @@ export default MapComponent;
 //       return;
 //     }
 
+
 //     const googleMapScript = document.createElement('script');
 //     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&libraries=places`;
+//     googleMapScript.async = true;
+//     googleMapScript.defer = true;
+
+//     googleMapScript.onload = () => {
 //     googleMapScript.async = true;
 //     googleMapScript.defer = true;
 
@@ -72,6 +77,14 @@ export default MapComponent;
 //         zoom: 8,
 //       });
 //       setMap(newMap);
+//     };
+
+//     googleMapScript.onerror = (e) => {
+//       console.error('Google Maps API script could not be loaded.', e);
+//     };
+
+//     window.document.body.appendChild(googleMapScript);
+//   }, [googleMapsApiKey]);
 //     };
 
 //     googleMapScript.onerror = (e) => {
