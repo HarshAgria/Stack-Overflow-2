@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Avatar = ({children, backgroundColor, px, py, color, borderRadius, fontSize, textAlign, cursor, imageUrl }) => {
+const Avatar = ({children, backgroundColor, px, py, color, borderRadius, fontSize, textAlign, cursor, backgroundImage }) => {
   const style ={
     backgroundColor,
     padding: `${py} ${px}`,
@@ -10,9 +10,10 @@ const Avatar = ({children, backgroundColor, px, py, color, borderRadius, fontSiz
     textAlign: "center",
     cursor: cursor || null,
     textDecoration: "none",
-    backgroundImage: `url(${imageUrl})`, // Set background image
+    backgroundImage: `url(${backgroundImage})`, // Set background image
     backgroundSize: 'cover',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     // borderRadius: round ? '50%' : borderRadius
   }
 
@@ -21,7 +22,7 @@ const Avatar = ({children, backgroundColor, px, py, color, borderRadius, fontSiz
   
   return (
     <div style={style}>
-      { children }
+      {backgroundImage ? null : children}
     </div>
   )
 }

@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
     about: {type: String},
     tags: {type: [String] },
     joinedOn: {type: Date, default: Date.now},
-    profilePicture: { type: String },
+    profilepic: { type: String },
     answers: { type: Number, default: 0 },
     loginHistory: [{
         timestamp: { type: Date, default: Date.now },

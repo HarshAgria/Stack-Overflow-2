@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar.jsx'
 import Avatar from '../../components/Avatar/Avatar.jsx'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faBirthdayCake, faPen} from '@fortawesome/free-solid-svg-icons'
+import {faBirthdayCake, faPen } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment'
 import EditProfileForm from './EditProfileForm.jsx'
 import ProfileBio from './ProfileBio.jsx'
@@ -19,7 +19,14 @@ const UserProfile = () => {
     const currentUser = useSelector((state) => state.currentUserReducer)
 
     const [Switch, setSwitch] = useState(false);
-    const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+    const [uploadedImageUrl, setUploadedImageUrl] = useState(currentProfile?.profilepic || '');
+
+
+    useEffect(() => {
+        if (currentProfile) {
+            setUploadedImageUrl(currentProfile.profilepic);
+        }
+    }, [currentProfile]);
 
 
   return (
@@ -32,14 +39,9 @@ const UserProfile = () => {
 
                         <>
                             {
-                                // Switch ? <div onClick={handleImageUpload}>
-                                //         <Avatar  backgroundColor="purple" color='white' fontSize='50px' px='40px' py='30px' cursor="pointer" backgroundImage={profilePicture} >
-                                //     <FontAwesomeIcon icon={faPen}/>
-                                // </Avatar>
-                                //     </div>
-                                // :
                                 <Avatar backgroundColor="purple" color='white' fontSize='50px' px='40px' py='30px' backgroundImage={uploadedImageUrl } >
-                                    {currentProfile?.name.charAt(0).toUpperCase()}
+                                    {currentProfile?.profilepic ? null : currentProfile?.name.charAt(0).toUpperCase()}
+                                    {/* {!uploadedImageUrl && currentProfile?.name.charAt(0).toUpperCase()} */}
                                 </Avatar>
                             }
                         </>

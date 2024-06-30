@@ -18,15 +18,12 @@ export const updateProfile = (id, updateData) => async (dispatch) => {
     }
 }
 
-export const updateProfilepic = (id, profilePicture) => async (dispatch) => {
+export const updateProfilepic = (id, imageData) => async (dispatch) => {
     try {
-        const response = await api.updateProfilepic(id, profilePicture);
+        const { data } = await api.updateProfilepic(id, imageData);
         
-        // console.log(response);
-        profilePicture = response.data.profilePicture;
-        console.log(response.data.profilePicture);
-        // const { data } = await api.updateProfile(id, updateData)
-        dispatch({ type: 'UPDATE_USER_IMAGE', payload: profilePicture})
+        dispatch({ type: 'UPDATE_CURRENT_USER', payload: data})
+        // console.log(data);
     } catch (error) {
         console.log(error);
     }

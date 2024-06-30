@@ -19,6 +19,8 @@ router.post('/google/signin', googleSignIn);
 router.get('/getAllUsers', getAllUsers);
 router.patch('/update/:id', auth, updateProfile);
 // router.post('/updateProfilepic/:id', auth, upload.single('image') , updateProfilepic);
+// router.patch('/updateProfilepic/:id', auth, updateProfilepic);
+// router.patch('/uploads/:id', auth, updateProfilepic);
 
 router.post('/reset-password-request', resetPasswordRequest);
 router.post('/reset-password/:token', resetPassword);

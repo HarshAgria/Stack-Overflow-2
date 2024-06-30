@@ -1,16 +1,5 @@
 import mongoose from "mongoose";
-// import { upload } from "../middlewares/multer.js";
 import users from '../models/auth.js'
-
-
-// Multer configuration
-// const upload = multer({
-//     dest: 'uploads/', // Destination directory for storing uploaded files
-//     // Define filename format for uploaded files
-//     filename: function (req, file, cb) {
-//       cb(null, Date.now() + '-' + file.originalname);
-//     }
-//   });
 
 export const getAllUsers = async(req,res) => {
     try {
@@ -54,22 +43,13 @@ const calculateBadges = (points) => {
 
 export const updateProfile = async (req, res) => {
     const { id:_id }=req.params;
-    const {name, about, tags, profilePicture } = req.body;
+    const {name, about, tags } = req.body;
 
     if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('question unavailable...')
     }
-
     try {
         let updateData = { name, about, tags };
-        // if (req.file) {
-        //     updateData.profilePicture = req.file.path;
-        // }
-
-        if (profilePicture) {
-            updateData.profilePicture = profilePicture;
-        }
-
         const updatedProfile = await users.findByIdAndUpdate(_id, updateData, { new: true });
         // const updateProfile = await users.findByIdAndUpdate( _id,
         //      { $set: { name: name, about: about, tags: tags, profilePicture: profilePicture}}, { new: true})
@@ -82,27 +62,22 @@ export const updateProfile = async (req, res) => {
 
 export const updateProfilepic = async (req, res) => {
     const { id: _id } = req.params;
-  
+    const { profilepic } = req.body;
     if (!mongoose.Types.ObjectId.isValid(_id)) {
-      return res.status(404).send('Invalid user ID');
+        return res.status(404).send('Invalid user ID');
     }
-  
     try {
-      const user = await users.findById(_id);
-  
-      if (!user) {
-        return res.status(404).send('User not found');
-      }
-    //   console.log(req.file);
-    if (profilePicture) {
-        user.profilePicture = profilePicture;
-    }
-      const updatedUser = await user.save();
-      res.status(200).json(updatedUser);
+        // let img = { profilepic };
+        const updatedprofilepic = await users.findByIdAndUpdate(_id, { profilepic } , { new: true });
+        if (!updatedprofilepic) {
+            return res.status(404).send('User not found');
+        }
+        res.status(200).json(updatedprofilepic);
+        console.log(profilepic); 
     } catch (error) {
-      res.status(500).json({ message: error.message });
+        res.status(405).json({ message: error.message });
     }
-  };
-
+    // res.send('Hello, Stackoverflow-api!');
+};
 
 

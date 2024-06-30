@@ -6,12 +6,6 @@ const MapComponent = () => {
 
 
   useEffect(() => {
-    // Load the Google Maps API script dynamically
-    // if (!googleMapsApiKey) {
-    //   console.error('Google Maps API key is missing');
-    //   return;
-    // }
-    // console.log('API Key:', googleMapsApiKey);
     const googleMapScript = document.createElement('script');
     googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBxUFIWpz4iAGAsOkpgOsRmS36ZtGsuPh4&libraries=places`;
     window.document.body.appendChild(googleMapScript);

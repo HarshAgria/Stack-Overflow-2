@@ -30,7 +30,7 @@ export const deleteAnswer = (id, answerId, noOfAnswers ) => API.patch(`/answer/d
 
 export const getAllUsers = () => API.get('/user/getAllUsers');
 export const updateProfile = (id, updateData) => API.patch(`/user/update/${id}`, updateData)
-export const updateProfilepic = (id, imageUrl) => API.post(`/user/updateProfilepic/${id}`, imageUrl)
+export const updateProfilepic = (id, imageData) => API.patch(`/updateProfilepic/${id}`, imageData)
 
 export const resetPasswordRequest = (email) => API.post("/user/reset-password-request", { email });
 export const resetPassword = (token, newPassword) => API.post(`/user/reset-password/${token}`, { newPassword });

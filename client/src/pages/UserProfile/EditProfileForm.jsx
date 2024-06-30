@@ -2,77 +2,81 @@ import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { updateProfile, updateProfilepic } from '../../actions/users';
 
-const EditProfileForm = ({ currentUser, setSwitch, setUploadedImageUrl }) => {
+const EditProfileForm = ({ currentUser, setSwitch }) => {
 
     const [name, setName] = useState(currentUser?.result?.name);
     const [about, setAbout] = useState(currentUser?.result?.about);
     const [tags, setTags] = useState('');
-    // const [profilePicture, setProfilePicture] = useState(currentUser?.result?.profilePicture);
+    const [profilepic,setprofilepic] = useState({ profilepic : ""});
     const dispatch = useDispatch();
     
-    const selectImage = async () => {
-      return new Promise((resolve, reject) => {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.addEventListener('change', () => {
-          const file = input.files[0];
-          if (file) {
-            resolve(file);
-          } else {
-            reject(new Error('No file selected'));
-          }
-        });
-        input.click();
-      });
-    };
-
-    const handleImageUpload = async (e) => {
-      try {
-          e.preventDefault();
-          const file = await selectImage(); // Implement selectImage function to open file picker
-          const formData = new FormData();
-          formData.append('image', file);
-          console.log(file);
-          console.log(formData);
-
-          dispatch(updateProfilepic(currentUser?.result?._id, formData));
-
-          // const response = await axios.post(`/user/update/${currentUser?.result?._id}`, formData); // Upload image to server
-          // console.log(response);
-          // const imageUrl = response.data.imageUrl; // Assuming server responds with image URL
-          // setProfilePicture(URL.createObjectURL(file));
-          setUploadedImageUrl(response.data.profilePicture);
-          // You can store imageUrl in your state or database as required
-      } catch (error) {
-          console.error('Error uploading image:', error);
-      }
-
-  };
-
     const handleSubmit = (e) => {
       e.preventDefault();
       if(tags[0] === "" || tags.length === 0){
-        // dispatch(updateProfile( currentUser?.result._id, { name, about, tags: currentUser?.result?.tags }))
         alert("Update tags field");
         return;
       }else{
         dispatch(updateProfile(currentUser?.result?._id, {name, about, tags }))
-        // dispatch(updateProfile(currentUser?.result?._id, formData));
       }
       // console.log({name, about, tags });
       setSwitch(false);
 
     }
 
+    function convertToBase64(file){
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () =>{
+          resolve(fileReader.result)
+        };
+        fileReader.onerror = (error) =>{
+          reject(error)
+        }
+      })
+    }
+
+
+    const handleS = async(e) =>{
+      e.preventDefault();
+      // const filename = `${Date.now()}-${currentUser?.result?._id}.jpg`;
+      // console.log(filename);
+      // const imageData = { image: profilepic, filename };
+      const imageData = { profilepic: profilepic };
+      // console.log(imageData);
+      try {
+        dispatch(updateProfilepic(currentUser?.result?._id, imageData));
+        // setSwitch(false);
+      } catch (error) {
+        console.error('Error updating profile picture:', error);
+      }
+    }
+    const handleFileUpload = async(e) =>{
+      const file = e.target.files[0];
+      console.log(file);
+      const base64 = await convertToBase64(file);
+      console.log("uploaded");
+      setprofilepic(base64)
+    }
+
+ 
+
   return (
     <div>
-      <label htmlFor='profilePicture'>
-                    <h3>Profile Picture</h3>
-                    <input type='file' id='profilePicture' onChange={handleImageUpload} accept='image/*' />
-                    {/* <input type='file' id='profilePicture' onChange={(e) => setProfilePicture(e.target.files[0])} /> */}
-                    {/* {profilePicture && <img src={profilePicture} width='100px' height='100px' alt='Profile' />} */}
-                </label>
+      <form onSubmit={handleS}>
+        <h3>Profile Picture</h3>
+      <label htmlFor='profilePicture' className='x'>
+          <img src={profilepic || null } alt="" className='x' />
+      </label>
+                    <input type='file'
+                     id='profilePicture' 
+                     label='Image'
+                     accept='.jpg,.png,.jpeg'
+                     onChange={handleFileUpload}/>
+                    <button type='submit'>Submit</button>
+        
+      </form>
+      
       <h1 className='edit-profile-title'>
         Edit Your Profile
       </h1>
@@ -100,4 +104,4 @@ const EditProfileForm = ({ currentUser, setSwitch, setUploadedImageUrl }) => {
   )
 }
 
-export default EditProfileForm
+export default EditProfileForm;
